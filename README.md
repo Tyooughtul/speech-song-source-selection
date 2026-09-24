@@ -3,6 +3,8 @@
 Reproduction code for **When Speech Competes with Song: Onset Position and
 Temporal History Shape Source Selection in Single-Output ASR**.
 
+Archived release: [Zenodo](https://doi.org/10.5281/zenodo.22928673).
+
 This repository implements the five experiments reported in the paper. It is
 organized around the public reproduction workflow. Source audio, model weights,
 annotations, and model outputs are not distributed here; see `THIRD_PARTY.md`
