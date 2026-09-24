@@ -1,0 +1,57 @@
+# Front-end experiment on the full primary evaluation set.
+# pairs_per_track selects every pair of a track: 2 crops x 15 utterances = 390
+# pairs, 5 conditions = 1,950 rows per model. The baseline and oracle_onset rows
+# reuse the Position experiment's audio.
+# Copy to front_end.local.yaml and fill local paths.
+project:
+  seed: 20260812
+  split: evaluation
+  onset_position_root: __SET_ME_ONSET_POSITION_ROOT__
+  output_root: __SET_ME_FRONT_END_OUTPUT_ROOT__
+
+selection:
+  snr_db: -10.0
+  pairs_per_track: 30
+
+frontend:
+  name: deepfilternet
+  version: 0.5.6
+  binary_path: __SET_ME_DEEPFILTERNET_BINARY__
+  sample_rate: 48000
+  compensate_delay: true
+  intervention_duration_s: 2.0
+  splice_crossfade_ms: 50.0
+
+models:
+  whisper:
+    backend: whisper_hf
+    model_path: __SET_ME_WHISPER_LARGE_V3_MODEL__
+    device: cuda
+    dtype: float16
+    language: en
+    task: transcribe
+    max_new_tokens: 180
+  qwen3:
+    backend: qwen_http
+    url: http://127.0.0.1:9705/v1/transcribe
+    workers: 4
+    timeout_s: 180
+    retries: 3
+  ctc:
+    backend: nemo_ctc
+    model_name: nvidia/parakeet-ctc-1.1b
+    model_path: __SET_ME_PARAKEET_CTC_NEMO_ARTIFACT__
+    device: cuda
+    batch_size: 16
+    transcribe_chunk_size: 256
+    word_timestamps: true
+    decoding_strategy: greedy_batch
+    external_language_model: null
+
+audio:
+  sample_rate: 16000
+
+scoring:
+  lowercase: true
+  strip_punctuation: true
+  bootstrap_replicates: 10000

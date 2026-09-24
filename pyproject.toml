@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speech-song-source-selection"
+version = "1.0.0"
+description = "Reproduction code for source selection in ASR under speech-song competition"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Lixin Yang", email = "yanglx27@mail2.sysu.edu.cn" }]
+keywords = ["speech recognition", "source selection", "speech-song competition", "reproducibility"]
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "soundfile>=0.12",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# One extra per inference backend. See requirements-inference.txt for the full
+# list, including the versions-sensitive transformers entry.
+whisper = ["torch>=2.1", "transformers>=4.46"]
+nemo = ["torch>=2.1", "nemo_toolkit[asr]>=3.0"]
+# Runtime for tools/qwen3_asr_service.py, the endpoint the qwen_http backend talks to.
+qwen = ["torch>=2.1", "qwen-asr"]
+# Only needed for the deployed TensorRT pipeline behind the ctc_triton backend.
+triton = ["tritonclient[grpc]>=2.50"]
+# Only needed by source_capture.preprocessing.librispeech.
+preprocessing = ["pyarrow>=14"]
+
+[project.scripts]
+source-capture = "source_capture.cli:main"
+source-capture-report = "source_capture.report:main"
+source-capture-validate = "source_capture.validation_cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

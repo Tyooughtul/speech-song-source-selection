@@ -1,0 +1,263 @@
+{
+  "description": "Reference values for Fig. 2. Position intervals use track bootstrap resampling; History intervals use two-way track-and-utterance bootstrap resampling. All intervals use 10,000 replicates.",
+  "onset_position_lir_contrasts": [
+    {
+      "ci95_high": -0.05461915417899406,
+      "ci95_low": -0.15186613648435923,
+      "estimate": -0.10197360541813644,
+      "model": "ctc",
+      "snr_db": -10.0
+    },
+    {
+      "ci95_high": 0.002361972000425826,
+      "ci95_low": -0.056209878364194665,
+      "estimate": -0.02629407085637617,
+      "model": "ctc",
+      "snr_db": -5.0
+    },
+    {
+      "ci95_high": 0.013505084850437625,
+      "ci95_low": -0.009886110164795422,
+      "estimate": 0.0010372188626760843,
+      "model": "ctc",
+      "snr_db": 0.0
+    },
+    {
+      "ci95_high": -0.05656257215155344,
+      "ci95_low": -0.17749994315382034,
+      "estimate": -0.113449435985376,
+      "model": "qwen3",
+      "snr_db": -10.0
+    },
+    {
+      "ci95_high": -0.007220015609240642,
+      "ci95_low": -0.10317140486934265,
+      "estimate": -0.05014395480777368,
+      "model": "qwen3",
+      "snr_db": -5.0
+    },
+    {
+      "ci95_high": 0.0037839668805544923,
+      "ci95_low": -9.776038398980848e-06,
+      "estimate": 0.001298278113804586,
+      "model": "qwen3",
+      "snr_db": 0.0
+    },
+    {
+      "ci95_high": -0.117591770269115,
+      "ci95_low": -0.23244662322896742,
+      "estimate": -0.17641449753907607,
+      "model": "whisper",
+      "snr_db": -10.0
+    },
+    {
+      "ci95_high": -0.016980201274598043,
+      "ci95_low": -0.10048060253411173,
+      "estimate": -0.05647358162504946,
+      "model": "whisper",
+      "snr_db": -5.0
+    },
+    {
+      "ci95_high": 0.007895789094734155,
+      "ci95_low": -0.02127415519116351,
+      "estimate": -0.004709284407592549,
+      "model": "whisper",
+      "snr_db": 0.0
+    }
+  ],
+  "temporal_history_effects": [
+    {
+      "ci95_high": 0.05551007326007326,
+      "ci95_low": 0.010045711233211234,
+      "estimate": 0.029313186813186818,
+      "metric": "speech_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": -0.011765331890331923,
+      "ci95_low": -0.0966477873977874,
+      "estimate": -0.05186988936988938,
+      "metric": "lyric_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": 0.057852869352869325,
+      "ci95_low": 0.009389143264143264,
+      "estimate": 0.030305250305250303,
+      "metric": "speech_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": -0.03144039351851856,
+      "ci95_low": -0.13335920965608464,
+      "estimate": -0.0795976631393298,
+      "metric": "lyric_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": 0.10084700022200022,
+      "ci95_low": 0.013718892218892222,
+      "estimate": 0.04908267658267659,
+      "metric": "speech_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": -0.07769831750040088,
+      "ci95_low": -0.21531176346801345,
+      "estimate": -0.14336018919352253,
+      "metric": "lyric_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": 0.15432234432234435,
+      "ci95_low": 0.051891941391941386,
+      "estimate": 0.10121489621489621,
+      "metric": "speech_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 4.0
+    },
+    {
+      "ci95_high": -0.08768202110389615,
+      "ci95_low": -0.18910542929292934,
+      "estimate": -0.13554252845919512,
+      "metric": "lyric_exclusive_recall",
+      "model": "ctc",
+      "switch_s": 4.0
+    },
+    {
+      "ci95_high": 0.13185027472527472,
+      "ci95_low": 0.0387845695970696,
+      "estimate": 0.080491452991453,
+      "metric": "speech_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": -0.05187584175084174,
+      "ci95_low": -0.14006601731601734,
+      "estimate": -0.09288720538720538,
+      "metric": "lyric_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": 0.1939175315425315,
+      "ci95_low": 0.08429884004884006,
+      "estimate": 0.1377737077737078,
+      "metric": "speech_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": -0.06763001543209879,
+      "ci95_low": -0.20196150242504407,
+      "estimate": -0.13573192239858906,
+      "metric": "lyric_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": 0.2571541375291375,
+      "ci95_low": 0.1116156783031783,
+      "estimate": 0.1820780145780146,
+      "metric": "speech_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": -0.13456660353535357,
+      "ci95_low": -0.3325784130992464,
+      "estimate": -0.23250962000962,
+      "metric": "lyric_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": 0.37015521978021976,
+      "ci95_low": 0.21566376678876684,
+      "estimate": 0.29205128205128206,
+      "metric": "speech_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 4.0
+    },
+    {
+      "ci95_high": -0.15122172619047622,
+      "ci95_low": -0.38856492504409157,
+      "estimate": -0.2632691999358666,
+      "metric": "lyric_exclusive_recall",
+      "model": "qwen3",
+      "switch_s": 4.0
+    },
+    {
+      "ci95_high": 0.2709732905982905,
+      "ci95_low": 0.1236037851037851,
+      "estimate": 0.19301587301587297,
+      "metric": "speech_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": -0.03908694083694089,
+      "ci95_low": -0.2093454184704185,
+      "estimate": -0.12003367003367005,
+      "metric": "lyric_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 0.5
+    },
+    {
+      "ci95_high": 0.33675847069597065,
+      "ci95_low": 0.16161782661782662,
+      "estimate": 0.24369861619861619,
+      "metric": "speech_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": -0.04851452270723108,
+      "ci95_low": -0.23247216710758375,
+      "estimate": -0.13551146384479718,
+      "metric": "lyric_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 1.0
+    },
+    {
+      "ci95_high": 0.4104114866614867,
+      "ci95_low": 0.22856703944203946,
+      "estimate": 0.31526547526547527,
+      "metric": "speech_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": -0.06806807659932662,
+      "ci95_low": -0.24746608946608942,
+      "estimate": -0.15383718133718133,
+      "metric": "lyric_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 2.0
+    },
+    {
+      "ci95_high": 0.47648412698412707,
+      "ci95_low": 0.2812818986568987,
+      "estimate": 0.3745848595848596,
+      "metric": "speech_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 4.0
+    },
+    {
+      "ci95_high": -0.09760802469135804,
+      "ci95_low": -0.27103752304793977,
+      "estimate": -0.18152707631874293,
+      "metric": "lyric_exclusive_recall",
+      "model": "whisper",
+      "switch_s": 4.0
+    }
+  ],
+  "schema_version": 1
+}

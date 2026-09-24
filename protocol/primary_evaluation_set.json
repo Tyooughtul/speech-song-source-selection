@@ -1,0 +1,321 @@
+{
+  "description": "Primary evaluation tracks, vocal crops, speech utterances, and input specifications used in the paper.",
+  "seed": 20260812,
+  "counts": {
+    "tracks": 13,
+    "utterances": 15,
+    "speakers": 15,
+    "vocal_crops": 26,
+    "pairs": 390
+  },
+  "objective_exclusions": [
+    {
+      "track_id": "PR - Happy Daze",
+      "reason": "no 10 s crop passed the reference/activity selection criteria; 34 aligned words over 162.5 s"
+    },
+    {
+      "track_id": "PR - Oh No",
+      "reason": "no 10 s crop passed the reference/activity selection criteria; 42 aligned words over 76.0 s"
+    }
+  ],
+  "tracks": [
+    {
+      "track_id": "Ben Carrigan - We'll Talk About It All Tonight",
+      "crops": [
+        {
+          "vocal_crop_id": "11936b865b1698c3",
+          "start_s": 144.0,
+          "audio_sha256": "6c42cc8089e725f480312756afdd53727e22777d946e0cf616896b4942923a23"
+        },
+        {
+          "vocal_crop_id": "9c9c187b2ba732ef",
+          "start_s": 37.5,
+          "audio_sha256": "2d46e6cf5150f32946dd98816f57dcc26581cbaedb7e2a245bad04cb6f6d2c94"
+        }
+      ]
+    },
+    {
+      "track_id": "Bobby Nobody - Stitch Up",
+      "crops": [
+        {
+          "vocal_crop_id": "46d31734763388b9",
+          "start_s": 38.0,
+          "audio_sha256": "22dea3291bef75917edd059da0cd0a6e38c142dd52478e170f902ec2c600329c"
+        },
+        {
+          "vocal_crop_id": "60aad981a2ab0630",
+          "start_s": 168.5,
+          "audio_sha256": "3b8d124afc1c6678950467619e115ac5173919f7903473205012ae7208db4faa"
+        }
+      ]
+    },
+    {
+      "track_id": "James Elder & Mark M Thompson - The English Actor",
+      "crops": [
+        {
+          "vocal_crop_id": "ace05433143c0f37",
+          "start_s": 51.0,
+          "audio_sha256": "5ee25ec6fdc75b9c73bdb6e7950e597a66e7ed027ab3cd7fbcc642d13ecd0375"
+        },
+        {
+          "vocal_crop_id": "fa884be748b70989",
+          "start_s": 164.5,
+          "audio_sha256": "cb9fca2c6e75ef210cd471bd00787b8a77326d252c7bb9ca5c4b4f7cdeff566e"
+        }
+      ]
+    },
+    {
+      "track_id": "Little Chicago's Finest - My Own",
+      "crops": [
+        {
+          "vocal_crop_id": "19101223f4e67389",
+          "start_s": 114.0,
+          "audio_sha256": "436899f5882679cd23e397124cbfd93184863b7297af6e222fe892f0b2da8a98"
+        },
+        {
+          "vocal_crop_id": "8575c788f06928e5",
+          "start_s": 132.0,
+          "audio_sha256": "2bb528d4b73e815f5416214c614337885822451bff7b0f1983522a6459fd9826"
+        }
+      ]
+    },
+    {
+      "track_id": "Moosmusic - Big Dummy Shake",
+      "crops": [
+        {
+          "vocal_crop_id": "3022ae1f4a21ed0a",
+          "start_s": 126.0,
+          "audio_sha256": "a352cf43a4790a7c1bb41203cf17662457f994982a82f29eb0b2d187f6a13b56"
+        },
+        {
+          "vocal_crop_id": "fe6f2bf428f1a67d",
+          "start_s": 30.0,
+          "audio_sha256": "f3dffcfd4772e26e0daacd8a646f81d9e9b8e2429240436eec7a972845e1ca29"
+        }
+      ]
+    },
+    {
+      "track_id": "Side Effects Project - Sing With Me",
+      "crops": [
+        {
+          "vocal_crop_id": "a39b1b2b14de207e",
+          "start_s": 108.5,
+          "audio_sha256": "b69a10b1438e5b18d0c17bc94316bbfcbe3bbaf55bdfd6cbadc7fc9fc5e9688e"
+        },
+        {
+          "vocal_crop_id": "a797a7a8d8641d7e",
+          "start_s": 63.5,
+          "audio_sha256": "a6bc425b2a07ae4bc469f7426a5cfed0f90f74af3c29411e598bb720a5ff6d7e"
+        }
+      ]
+    },
+    {
+      "track_id": "Skelpolu - Resurrection",
+      "crops": [
+        {
+          "vocal_crop_id": "632ef8ac392916f2",
+          "start_s": 294.0,
+          "audio_sha256": "c66a7cb19bd5bc4ed83982b90d07c89b3004cbdf66fc9534569bac7f11468929"
+        },
+        {
+          "vocal_crop_id": "c4e8f2dc061fe1a9",
+          "start_s": 357.5,
+          "audio_sha256": "1d75fd441bd05997d233c046dc0a924f8462cfda06ae86404f275775fe2073a0"
+        }
+      ]
+    },
+    {
+      "track_id": "Speak Softly - Broken Man",
+      "crops": [
+        {
+          "vocal_crop_id": "188f67d17e6ab6be",
+          "start_s": 130.5,
+          "audio_sha256": "baa75070287ac6036975c85eb37326c055ec4fec2ff491ead7be3337cd998d1e"
+        },
+        {
+          "vocal_crop_id": "b0c527352374852b",
+          "start_s": 167.5,
+          "audio_sha256": "2193f636b702d8cead8cbf238d9185fe1ea3c5c50602b44b36ed3d182b5d0ec4"
+        }
+      ]
+    },
+    {
+      "track_id": "The Easton Ellises - Falcon 69",
+      "crops": [
+        {
+          "vocal_crop_id": "3b3b0628cbe3b513",
+          "start_s": 120.0,
+          "audio_sha256": "5bf46de9b2c8e50ad05912d759ddf1e9bdc3f2afd2a0ba1651f84e46a2b5f164"
+        },
+        {
+          "vocal_crop_id": "41f411a2ba4f242e",
+          "start_s": 97.5,
+          "audio_sha256": "4349e493e031064f11828e61efdc0326ba9566bd8d3dc38875f828cab7028f9a"
+        }
+      ]
+    },
+    {
+      "track_id": "The Long Wait - Dark Horses",
+      "crops": [
+        {
+          "vocal_crop_id": "8b8e4edceef760f2",
+          "start_s": 203.0,
+          "audio_sha256": "8673054e008ab4ea0368cd34ff1bfae407914523c93f70226950f684c07a439a"
+        },
+        {
+          "vocal_crop_id": "bb2dfa72080119fe",
+          "start_s": 165.0,
+          "audio_sha256": "9478e2ad38e5f66787ef2c7cfeb42859f1945e20af483c48c793e2db07c0895d"
+        }
+      ]
+    },
+    {
+      "track_id": "The Sunshine Garcia Band - For I Am The Moon",
+      "crops": [
+        {
+          "vocal_crop_id": "470104e082f173e0",
+          "start_s": 249.0,
+          "audio_sha256": "e903efeafcd5abb4c9fcba9f76b0b9f69333c312c6d87732a615bd7a482279be"
+        },
+        {
+          "vocal_crop_id": "7cd4f13d175010ed",
+          "start_s": 112.0,
+          "audio_sha256": "228659f9dacd86fc3cf893604aa4015e39b7cb7ee90551c3a7e73cfa12810bed"
+        }
+      ]
+    },
+    {
+      "track_id": "Triviul feat. The Fiend - Widow",
+      "crops": [
+        {
+          "vocal_crop_id": "245e0f4e9656b4d3",
+          "start_s": 153.5,
+          "audio_sha256": "d9312e3b6acac7706bb820a4327f6a9cac79b7f9fcd70765aa06ab0dabfb0d4e"
+        },
+        {
+          "vocal_crop_id": "b41b03ad8705f957",
+          "start_s": 187.5,
+          "audio_sha256": "6dc54ee3a1f34f117699e7663ddf37898976056c861c630f4fe8ff86eb51f17c"
+        }
+      ]
+    },
+    {
+      "track_id": "Zeno - Signs",
+      "crops": [
+        {
+          "vocal_crop_id": "1a9526c7ebf90305",
+          "start_s": 202.0,
+          "audio_sha256": "027da3a43b4f4f54f12a334ef3a99d49040cafeaabb6450e6ed2575b4b76c85f"
+        },
+        {
+          "vocal_crop_id": "c2cb74becc17cc66",
+          "start_s": 131.5,
+          "audio_sha256": "26ffd89fab9d47430c87cd90b9cf6b58d1e6db5df78a0aff9f04de6d5cc46d18"
+        }
+      ]
+    }
+  ],
+  "utterances": [
+    {
+      "speech_id": "1089-134686-0023",
+      "speaker_id": "1089",
+      "audio_sha256": "2da34a491b4ae3796ef269341ec70ae8d6a7d1b6bfa92363922210cc4a4cd69e"
+    },
+    {
+      "speech_id": "121-123859-0002",
+      "speaker_id": "121",
+      "audio_sha256": "f43f7a08854376ea8771de71d98f113c187f682dcc2b7e86f180eb722b068789"
+    },
+    {
+      "speech_id": "1221-135766-0001",
+      "speaker_id": "1221",
+      "audio_sha256": "d7bfd3944dc01be0fb136d94abf808e1761ee8043d3e6a98b73965b834454d02"
+    },
+    {
+      "speech_id": "1580-141083-0006",
+      "speaker_id": "1580",
+      "audio_sha256": "a18f6d851c4f9aecd56105c039c14b79615ad50ab77849c959b7a07fa9ef3645"
+    },
+    {
+      "speech_id": "1995-1836-0004",
+      "speaker_id": "1995",
+      "audio_sha256": "d150e6f8eaeb591f52718e22d3d8bb6e739fe9a9e234f7840b178101621bb2da"
+    },
+    {
+      "speech_id": "2300-131720-0025",
+      "speaker_id": "2300",
+      "audio_sha256": "5d71a7d07e87dfffb22ef7e25d2cf653560b78155d73e506cbb855eef8cef0a9"
+    },
+    {
+      "speech_id": "2961-960-0002",
+      "speaker_id": "2961",
+      "audio_sha256": "4305005c2b6b0421167d4fd5c89c47a5b5693014138a310c485f5cae2eda75b2"
+    },
+    {
+      "speech_id": "3570-5694-0021",
+      "speaker_id": "3570",
+      "audio_sha256": "400a01866520f52fa4be5ac59634598eb77c30ef5a23c30ede8963e567d5e711"
+    },
+    {
+      "speech_id": "4077-13751-0004",
+      "speaker_id": "4077",
+      "audio_sha256": "2d775559e844d1a8519f32acf964751e9030eeda71c3b1ebc16439e61077df67"
+    },
+    {
+      "speech_id": "5683-32866-0019",
+      "speaker_id": "5683",
+      "audio_sha256": "8da1eea859dd9244e1c0898525137d8fbb9eaa6fbdf49494b220f29a3d939d81"
+    },
+    {
+      "speech_id": "672-122797-0001",
+      "speaker_id": "672",
+      "audio_sha256": "2f86ae2143c513eb2fd277e7512f3325248a3e1d1c7f5e8969742f8c65b2dc4e"
+    },
+    {
+      "speech_id": "6930-75918-0018",
+      "speaker_id": "6930",
+      "audio_sha256": "f555107d7ef92f6849214da17b682e17cb5d24cda62648ca04dfc791957635b7"
+    },
+    {
+      "speech_id": "7729-102255-0007",
+      "speaker_id": "7729",
+      "audio_sha256": "b700f25260965e95591cc3ffa34d8449675a5556f1463169f0b4fdde52ed099b"
+    },
+    {
+      "speech_id": "8224-274381-0016",
+      "speaker_id": "8224",
+      "audio_sha256": "e3d6b4ddd8697f9b218371bbd8448e108246321c77426b51c4ba033ab464c627"
+    },
+    {
+      "speech_id": "8555-284449-0011",
+      "speaker_id": "8555",
+      "audio_sha256": "cf0644f5139177d02bed3bce1a6a7e29af8d0b55a9258ffc838cddd6fbb4ede5"
+    }
+  ],
+  "pair_ids_sha256": "ee52cb076b0da0dc527d195590569bbc9031fe4741800009f84b437568bf4fc6",
+  "parakeet_ctc": {
+    "name": "nvidia/parakeet-ctc-1.1b",
+    "resolved_revision": "20e63a0fed6aedba145b74b826dbd41df0941730",
+    "artifact_sha256": "8e91253dd1380b0988e34606d0b6bdfdf244a4fbb0f67e01a088083fc7485a08",
+    "decoding": "greedy_batch CTC (same greedy output interface); no external LM; no word boosting",
+    "word_timestamps": true
+  },
+  "confirmatory_family": [
+    "Temporal history 2 s S-to-L vs matched-static for Whisper",
+    "Temporal history 2 s S-to-L vs matched-static for Qwen3-ASR",
+    "Lyric scrambling intact vs 500 ms shuffle for Whisper",
+    "Lyric scrambling intact vs 500 ms shuffle for Qwen3-ASR"
+  ],
+  "confirmatory_endpoints": {
+    "temporal_history": "intersection-union: speech_exclusive_recall must increase and lyric_exclusive_recall must decrease",
+    "lyric_scrambling": "lyric_exclusive_recall; speech recall and no-grounded qualify interpretation"
+  },
+  "multiple_comparisons": "Holm correction across the four model-level confirmatory hypotheses",
+  "missing_data_rules": {
+    "inference_error": "report separately; never convert to a negative or no-output result",
+    "forced_alignment_error": "exclude metric row and report missingness; never use native timing as fallback",
+    "no_grounded_output": "report as a separate binary endpoint; LIR remains undefined; exclusive recalls remain zero",
+    "paired_contrast": "use only cells observed in both contrasted conditions"
+  },
+  "ctc_role": "predeclared secondary architecture extension; always report"
+}

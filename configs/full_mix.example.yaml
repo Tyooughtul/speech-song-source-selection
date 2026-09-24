@@ -1,0 +1,47 @@
+# Full-mix accompaniment experiment on the primary evaluation set.
+# Copy to full_mix.local.yaml and fill in local paths before running.
+# For every evaluation pair: baseline_matched = speech + g*vocal and
+# fullmix = speech + g*vocal + g*accompaniment, sharing one common scale,
+# with g equal to the Position baseline vocal gain at the same SNR.
+project:
+  seed: 20260812
+  split: evaluation
+  pairs_manifest: __SET_ME_PRIMARY_PAIRS_MANIFEST__
+  output_root: __SET_ME_FULL_MIX_OUTPUT_ROOT__
+
+models:
+  whisper:
+    backend: whisper_hf
+    model_path: __SET_ME_WHISPER_LARGE_V3_MODEL__
+    device: cuda
+    dtype: float16
+    language: en
+    task: transcribe
+    max_new_tokens: 180
+  qwen3:
+    backend: qwen_http
+    url: http://127.0.0.1:9705/v1/transcribe
+    workers: 4
+    timeout_s: 180
+    retries: 3
+  ctc:
+    backend: nemo_ctc
+    model_name: nvidia/parakeet-ctc-1.1b
+    model_path: __SET_ME_PARAKEET_CTC_NEMO_ARTIFACT__
+    device: cuda
+    batch_size: 16
+    transcribe_chunk_size: 256
+    word_timestamps: true
+    decoding_strategy: greedy_batch
+    external_language_model: null
+
+audio:
+  sample_rate: 16000
+  clip_duration_s: 10.0
+  snr_db: -10.0
+  headroom_peak: 0.90
+
+scoring:
+  lowercase: true
+  strip_punctuation: true
+  bootstrap_replicates: 10000

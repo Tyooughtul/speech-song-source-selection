@@ -1,0 +1,28 @@
+# Local configuration copies. Only the *.example.yaml files are versioned.
+configs/*.local.yaml
+
+# Datasets, checkpoints, mixtures, and run outputs.
+data/
+models/
+outputs/
+*.wav
+*.flac
+*.mp3
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.bin
+*.safetensors
+
+# Python build and cache artifacts.
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+.DS_Store

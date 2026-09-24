@@ -1,0 +1,99 @@
+{
+  "seed": 20260812,
+  "purpose": "Replication of the position, temporal-history, and full-mix contrasts on an independent set of MUSDB18 train tracks and LibriSpeech speakers.",
+  "counts": {
+    "tracks": 26,
+    "vocal_crops": 52,
+    "utterances": 15,
+    "speakers": 15,
+    "pairs": 780
+  },
+  "tracks": [
+    "ANiMAL - Easy Tiger",
+    "Aimee Norwich - Child",
+    "Angela Thomas Wade - Milk Cow Blues",
+    "Atlantis Bound - It Was My Fault For Waiting",
+    "Auctioneer - Our Future Faces",
+    "Clara Berry And Wooldog - Stella",
+    "Clara Berry And Wooldog - Waltz For My Victims",
+    "Faces On Film - Waiting For Ga",
+    "Hezekiah Jones - Borrowed Heart",
+    "Invisible Familiars - Disturbing Wildlife",
+    "James May - Dont Let Go",
+    "James May - On The Line",
+    "Johnny Lokke - Promises & Lies",
+    "Jokers, Jacks & Kings - Sea Of Leaves",
+    "Leaf - Summerghost",
+    "Music Delta - Beatles",
+    "Music Delta - Country1",
+    "Patrick Talbot - Set Me Free",
+    "Skelpolu - Human Mistakes",
+    "St Vitus - Word Gets Around",
+    "Steven Clark - Bounty",
+    "Strand Of Oaks - Spacestation",
+    "The Wrong'Uns - Rothko",
+    "Triviul - Angelsaint",
+    "Young Griffo - Blood To Bone",
+    "Young Griffo - Facade"
+  ],
+  "speaker_ids": [
+    "1284",
+    "2094",
+    "237",
+    "3575",
+    "3729",
+    "4507",
+    "4970",
+    "4992",
+    "5105",
+    "5142",
+    "5639",
+    "7127",
+    "7176",
+    "8455",
+    "908"
+  ],
+  "pair_ids_sha256": "f63c772496172b54c3775ccdfd741bcbf770b8880714714b520d1cdaafd92004",
+  "experiments": {
+    "onset_position": {
+      "conditions": [
+        "baseline",
+        "onset",
+        "middle",
+        "offset",
+        "distributed",
+        "full"
+      ],
+      "snr_db": [
+        -10.0
+      ],
+      "contrast": "LIR(onset) - mean LIR(middle, offset, distributed)"
+    },
+    "temporal_history": {
+      "conditions": [
+        "s_to_l",
+        "matched_static_lyric"
+      ],
+      "history_s": 2.0,
+      "window_s": [
+        2.025,
+        4.025
+      ],
+      "endpoint": "intersection-union: window speech_exclusive_recall up AND lyric_exclusive_recall down"
+    },
+    "full_mix": {
+      "conditions": [
+        "baseline_matched",
+        "fullmix"
+      ],
+      "snr_db": -10.0,
+      "contrast": "fullmix - baseline_matched"
+    }
+  },
+  "statistics": {
+    "sign_flip": "exact two-sided sign-flip tests on the track axis (n=26 requires sampling 2^26>2^20; use 100,000 sampled sign assignments) and the utterance axis (2^15 exact)",
+    "bootstrap": "two-way cluster bootstrap, 10,000 replicates",
+    "correction": "none; replication set, reported alongside, not pooled with, the primary confirmatory family"
+  },
+  "description": "Independent replication tracks, speakers, and experiment settings used in the paper."
+}

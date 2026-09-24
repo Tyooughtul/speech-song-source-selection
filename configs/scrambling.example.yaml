@@ -1,0 +1,48 @@
+# Scrambling experiment on the primary evaluation set.
+# Copy to scrambling.local.yaml and fill local paths.
+project:
+  seed: 20260812
+  split: evaluation
+  pairs_manifest: __SET_ME_PRIMARY_PAIRS_MANIFEST__
+  output_root: __SET_ME_LYRIC_SCRAMBLING_OUTPUT_ROOT__
+
+models:
+  whisper:
+    backend: whisper_hf
+    model_path: __SET_ME_WHISPER_LARGE_V3_MODEL__
+    device: cuda
+    dtype: float16
+    language: en
+    task: transcribe
+    max_new_tokens: 180
+  qwen3:
+    backend: qwen_http
+    url: __SET_ME_QWEN3_TRANSCRIBE_URL__
+    workers: 4
+    timeout_s: 180
+    retries: 3
+  ctc:
+    backend: nemo_ctc
+    model_name: nvidia/parakeet-ctc-1.1b
+    model_path: __SET_ME_PARAKEET_CTC_NEMO_ARTIFACT__
+    device: cuda
+    batch_size: 16
+    transcribe_chunk_size: 256
+    word_timestamps: true
+    decoding_strategy: greedy_batch
+    external_language_model: null
+
+audio:
+  sample_rate: 16000
+  clip_duration_s: 10.0
+  snr_db: -10.0
+  headroom_peak: 0.90
+  boundary_smoothing_ms: 10.0
+
+selection:
+  crops_per_track: 1
+
+scoring:
+  lowercase: true
+  strip_punctuation: true
+  bootstrap_replicates: 10000

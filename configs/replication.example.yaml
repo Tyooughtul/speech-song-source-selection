@@ -1,0 +1,106 @@
+# Independent replication-set configuration.
+# Same structure as primary.local.yaml, but:
+#   - musdb18hq_root points at the decoded MUSDB18 TRAIN stems
+#   - lyrics_manifest is produced by source_capture.preprocessing.replication_lyrics
+#   - no required_track_ids: prepare selects n_tracks deterministically
+#   - speakers are disjoint from the primary evaluation set
+# Copy to replication.local.yaml and fill local paths.
+project:
+  seed: 20260812
+  output_root: __SET_ME_REPLICATION_OUTPUT_ROOT__
+
+datasets:
+  librispeech_test_clean: __SET_ME_LIBRISPEECH_TEST_CLEAN__
+  musdb18hq_root: __SET_ME_MUSDB18_TRAIN_ROOT__
+  lyrics_manifest: __SET_ME_REPLICATION_LYRICS_MANIFEST__
+  speech_alignment_manifest: __SET_ME_SPEECH_ALIGNMENT_MANIFEST__
+  allow_missing_lyrics_during_generation: false
+
+selection:
+  n_speech_utterances: 15
+  n_tracks: 26
+  crops_per_track: 2
+  split_development_fraction: 0.0
+  excluded_speech_speaker_ids:
+    - "1320"
+    - "260"
+    - "6829"
+    - "7021"
+    - "8230"
+    - "1089"
+    - "121"
+    - "1221"
+    - "1580"
+    - "1995"
+    - "2300"
+    - "2961"
+    - "3570"
+    - "4077"
+    - "5683"
+    - "672"
+    - "6930"
+    - "7729"
+    - "8224"
+    - "8555"
+  excluded_track_ids: []
+  vocal_crop_hop_s: 0.5
+  vocal_min_active_fraction: 0.70
+  vocal_activity_threshold_db_below_track_peak: 30.0
+  component_window_min_db_below_clip_rms: 20.0
+  required_activity_windows_s:
+    - [0.0, 0.5]
+    - [0.5, 2.5]
+    - [1.0, 3.0]
+    - [2.0, 4.0]
+    - [4.0, 6.0]
+    - [5.0, 10.0]
+
+audio:
+  sample_rate: 16000
+  clip_duration_s: 10.0
+  headroom_peak: 0.90
+  intervention_ramp_ms: 50.0
+  vad:
+    frame_ms: 30.0
+    hop_ms: 10.0
+    threshold_db_below_peak: 35.0
+    min_consecutive_frames: 3
+    pre_roll_ms: 50.0
+
+models:
+  whisper:
+    backend: whisper_hf
+    model_path: __SET_ME_WHISPER_LARGE_V3_MODEL__
+    device: cuda
+    dtype: float16
+    language: en
+    task: transcribe
+    max_new_tokens: 180
+  qwen3:
+    backend: qwen_http
+    url: http://127.0.0.1:9705/v1/transcribe
+    workers: 4
+    timeout_s: 180
+    retries: 3
+  ctc:
+    backend: nemo_ctc
+    model_name: nvidia/parakeet-ctc-1.1b
+    model_path: __SET_ME_PARAKEET_CTC_NEMO_ARTIFACT__
+    device: cuda
+    batch_size: 16
+    transcribe_chunk_size: 256
+    word_timestamps: true
+    decoding_strategy: greedy_batch
+    external_language_model: null
+
+experiments:
+  onset_position:
+    snr_db: [-10.0]
+    attenuation_db: 20.0
+    intervention_duration_s: 2.0
+    distributed_intervals_s: [[2.0, 3.0], [7.0, 8.0]]
+
+scoring:
+  lowercase: true
+  strip_punctuation: true
+  bootstrap_replicates: 10000

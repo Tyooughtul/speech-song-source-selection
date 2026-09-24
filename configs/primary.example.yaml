@@ -1,0 +1,135 @@
+# Primary evaluation set. Copy to primary.local.yaml and fill paths.
+# Selection parameters match the primary evaluation set reported in the paper.
+project:
+  seed: 20260812
+  output_root: __SET_ME_OUTPUT_ROOT__
+
+datasets:
+  librispeech_test_clean: __SET_ME_LIBRISPEECH_TEST_CLEAN__
+  musdb18hq_root: __SET_ME_MUSDB18HQ__
+  lyrics_manifest: __SET_ME_LYRICS_MANIFEST__
+  speech_alignment_manifest: __SET_ME_SPEECH_ALIGNMENT_MANIFEST__
+  allow_missing_lyrics_during_generation: false
+
+selection:
+  n_speech_utterances: 15
+  n_tracks: 13
+  crops_per_track: 2
+  split_development_fraction: 0.0
+  excluded_speech_ids:
+    - 1320-122617-0018
+    - 260-123288-0011
+    - 6829-68771-0010
+    - 7021-79730-0008
+    - 8230-279154-0031
+  excluded_speech_speaker_ids: ["1320", "260", "6829", "7021", "8230"]
+  # No valid 10 s crop under the reference/activity criteria.
+  excluded_track_ids:
+    - PR - Happy Daze
+    - PR - Oh No
+  required_track_ids:
+    - Ben Carrigan - We'll Talk About It All Tonight
+    - Bobby Nobody - Stitch Up
+    - James Elder & Mark M Thompson - The English Actor
+    - Little Chicago's Finest - My Own
+    - Moosmusic - Big Dummy Shake
+    - Side Effects Project - Sing With Me
+    - Skelpolu - Resurrection
+    - Speak Softly - Broken Man
+    - The Easton Ellises - Falcon 69
+    - The Long Wait - Dark Horses
+    - The Sunshine Garcia Band - For I Am The Moon
+    - Triviul feat. The Fiend - Widow
+    - Zeno - Signs
+  vocal_crop_hop_s: 0.5
+  vocal_min_active_fraction: 0.70
+  vocal_activity_threshold_db_below_track_peak: 30.0
+  component_window_min_db_below_clip_rms: 20.0
+  required_activity_windows_s:
+    - [0.0, 0.5]
+    - [0.5, 2.5]
+    - [1.0, 3.0]
+    - [2.0, 4.0]
+    - [4.0, 6.0]
+    - [5.0, 10.0]
+
+audio:
+  sample_rate: 16000
+  clip_duration_s: 10.0
+  headroom_peak: 0.90
+  intervention_ramp_ms: 50.0
+  vad:
+    frame_ms: 30.0
+    hop_ms: 10.0
+    threshold_db_below_peak: 35.0
+    min_consecutive_frames: 3
+    pre_roll_ms: 50.0
+
+experiments:
+  onset_position:
+    snr_db: [-10.0, -5.0, 0.0]
+    attenuation_db: 20.0
+    intervention_duration_s: 2.0
+    distributed_intervals_s: [[2.0, 3.0], [7.0, 8.0]]
+  temporal_history:
+    speech_dominant_snr_db: 10.0
+    lyric_dominant_snr_db: -10.0
+    equal_snr_db: 0.0
+    history_durations_s: [0.5, 1.0, 2.0, 4.0]
+    primary_history_duration_s: 2.0
+    post_switch_evaluation_s: 2.0
+    symmetric_switch_s: 5.0
+
+models:
+  whisper:
+    backend: whisper_hf
+    model_path: __SET_ME_WHISPER_LARGE_V3_MODEL__
+    device: cuda
+    dtype: float16
+    max_new_tokens: 180
+    word_timestamps: true
+    language: en
+    task: transcribe
+    # Word timestamps for the windowed history analysis. Point
+    # word_alignment_manifest at a common forced alignment, produced once for all
+    # models, and set both flags below to true to reproduce the paper's windowed
+    # setting. Leaving them false uses each model's own timestamps.
+    word_alignment_manifest: null
+    prefer_external_word_alignment: false
+    require_external_word_alignment: false
+  qwen3:
+    backend: qwen_http
+    url: __SET_ME_QWEN3_TRANSCRIBE_URL__
+    workers: 4
+    timeout_s: 180
+    retries: 3
+    word_alignment_manifest: null
+    prefer_external_word_alignment: false
+    require_external_word_alignment: false
+  ctc:
+    backend: nemo_ctc
+    model_name: nvidia/parakeet-ctc-1.1b
+    # The revision used for the reported alignments is recorded in
+    # protocol/primary_evaluation_set.json together with its artifact SHA-256.
+    resolved_revision: 20e63a0fed6aedba145b74b826dbd41df0941730
+    # Pin and load the resolved .nemo artifact locally; record its revision and SHA-256.
+    model_path: __SET_ME_PARAKEET_CTC_NEMO_ARTIFACT__
+    device: cuda
+    batch_size: 16
+    transcribe_chunk_size: 256
+    word_timestamps: true
+    decoding: greedy CTC
+    decoding_strategy: greedy_batch
+    external_language_model: null
+    word_alignment_manifest: null
+    prefer_external_word_alignment: false
+    require_external_word_alignment: false
+
+scoring:
+  lowercase: true
+  strip_punctuation: true
+  require_lyric_reference: true
+  require_crop_aligned_lyrics: true
+  require_speech_alignment: true
+  require_word_aligned_references_for_temporal_history: true
+  bootstrap_replicates: 10000

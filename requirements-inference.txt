@@ -1,0 +1,31 @@
+# Inference and analysis environment.
+#
+# The core package covers stimulus construction, scoring, and statistics.
+# Inference additionally requires one or more of the model stacks below:
+# install only the backends you intend to run.
+#
+# Record the resolved versions you actually used. Whisper word timestamps are
+# requested through transformers' return_timestamps="word", whose behaviour has
+# changed across releases, so a different transformers version can change the
+# windowed analyses without changing this repository.
+
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12
+PyYAML>=6.0
+
+# whisper_hf backend
+torch>=2.1
+transformers>=4.46
+
+# qwen_http backend, served by tools/qwen3_asr_service.py
+qwen-asr
+
+# nemo_ctc backend and the common forced aligner
+nemo_toolkit[asr]>=3.0
+
+# ctc_triton backend, only needed for the deployed TensorRT pipeline
+tritonclient[grpc]>=2.50
+
+# preprocessing.librispeech, only needed to convert the MFA parquet export
+pyarrow>=14

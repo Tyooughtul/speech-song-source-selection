@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper."
+title: "Reproduction artifact for: When Speech Competes with Song - Onset Position and Temporal History Shape Source Selection in Single-Output ASR"
+abstract: "Mixture construction, ASR inference backends, source-exclusive scoring, and the statistical analyses for the five experiments of the paper. Source audio, model weights, and hypotheses are not redistributed."
+type: software
+authors:
+  - family-names: Yang
+    given-names: Lixin
+    affiliation: "Sun Yat-sen University, Guangzhou, China"
+    email: yanglx27@mail2.sysu.edu.cn
+version: 1.0.0
+date-released: 2026-09-24
+repository-code: "https://github.com/Tyooughtul/speech-song-source-selection"
+license: MIT
+keywords:
+  - speech recognition
+  - source selection
+  - speech-song competition
+  - reproducibility
